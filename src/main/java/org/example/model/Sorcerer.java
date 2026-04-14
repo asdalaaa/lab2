@@ -1,0 +1,37 @@
+package org.example.model;
+
+public class Sorcerer {
+    private String name;
+    private String rank;
+
+    public Sorcerer(String name, String rank) {
+        this.name = name;
+        this.rank = rank;
+    }
+
+    public Sorcerer() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public void printInfo() {
+        System.out.println("Имя: " + name);
+        System.out.println("Ранг: " + rank);
+    }
+}
+
