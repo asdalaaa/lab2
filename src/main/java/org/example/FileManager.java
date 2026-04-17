@@ -1,10 +1,13 @@
 package org.example;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.fabric.*;
 import org.example.model.Mission;
 import org.example.reports.AdditionalInfoReportDecorator;
 import org.example.reports.MissionReport;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FileManager {
@@ -48,9 +51,18 @@ public class FileManager {
                 MissionReport report = new MissionReport();
                 AdditionalInfoReportDecorator reportDecorator = new AdditionalInfoReportDecorator(report);
                 System.out.println(reportDecorator.getReport(mission));
+                save(mission);
+
             } catch (Exception e) {
                 System.out.println("Ошибка: " + e.getMessage());
             }
+        }
+    }
+    public void save(Mission mission) {
+        try {
+            new ObjectMapper().writeValue(new File("output.json"), mission);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
