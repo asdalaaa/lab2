@@ -29,9 +29,5 @@ public class Sorcerer {
         this.rank = rank;
     }
 
-    public void printInfo() {
-        System.out.println("Имя: " + name);
-        System.out.println("Ранг: " + rank);
-    }
 }
 

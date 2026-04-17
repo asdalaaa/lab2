@@ -49,10 +49,4 @@ public class Technique {
         this.damage = damage;
     }
 
-    public void printInfo() {
-        System.out.println("Название: " + name);
-        System.out.println("Тип: " + type);
-        System.out.println("Владелец: " + owner);
-        System.out.println("Урон: " + damage);
-    }
 }

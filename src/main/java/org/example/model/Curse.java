@@ -29,9 +29,9 @@ public class Curse {
         this.threatLevel = threatLevel;
     }
 
-    public void printInfo(){
-        System.out.println("Название: " + name);
-        System.out.println("Уровень угрозы: " + threatLevel);
+    public String getInfo() {
+        return "Название: " + name + "\n" +
+                "Уровень угрозы: " + threatLevel;
     }
 }
 

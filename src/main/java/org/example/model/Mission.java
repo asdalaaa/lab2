@@ -2,14 +2,13 @@ package org.example.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import org.w3c.dom.Element;
+import org.example.reports.Report;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Mission {
+public class Mission  {
     private String missionId;
     private String date;
     private String location;
@@ -25,21 +24,8 @@ public class Mission {
     private List<OperationTimeline> operationTimeline;
     private Map<String, Object> otherFields = new HashMap<>();
 
-    public Mission(String missionId, String date, String location, String outcome, Integer damageCost, Curse curse, List<Sorcerer> sorcerers, List<Technique> techniques, EconomicAssessment economicAssessment, CivilianImpact civilianImpact, EnemyActivity enemyActivity, EnvironmentConditions environmentConditions, List<OperationTimeline> operationTimeline, Map<String, Object> otherFields) {
-        this.missionId = missionId;
-        this.date = date;
-        this.location = location;
-        this.outcome = outcome;
-        this.damageCost = damageCost;
-        this.curse = curse;
-        this.sorcerers = sorcerers;
-        this.techniques = techniques;
-        this.economicAssessment = economicAssessment;
-        this.civilianImpact = civilianImpact;
-        this.enemyActivity = enemyActivity;
-        this.environmentConditions = environmentConditions;
-        this.operationTimeline = operationTimeline;
-        this.otherFields = otherFields;
+    public Mission() {
+
     }
 
     public String getMissionId() {
@@ -114,35 +100,6 @@ public class Mission {
     @JsonAnyGetter
     public Map<String, Object> getOtherFields() {
         return otherFields;
-    }
-
-    public void printInfo() {
-        System.out.println("===========");
-        System.out.println("Миссия: " + missionId);
-        System.out.println("Дата: " + date);
-        System.out.println("Локация: " + location);
-        System.out.println("Исход: " + outcome);
-        System.out.println("Ущерб: " + damageCost);
-        System.out.println("\n===========");
-        System.out.println("Проклятие: ");
-        curse.printInfo();
-        System.out.println("\n===========");
-        System.out.println("Маги: ");
-        for (int i=0; i<sorcerers.size(); i++) {
-            sorcerers.get(i).printInfo();
-        };
-        System.out.println("\n===========");
-        System.out.println("Техники: ");
-        for (int i=0; i<techniques.size(); i++) {
-            techniques.get(i).printInfo();
-        };
-        System.out.println("\n===========");
-        for (Map.Entry<String, Object> entry:otherFields.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            System.out.println(key + ": " + value + "\n===========");
-        }
-
     }
 
 
